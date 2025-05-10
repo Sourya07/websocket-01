@@ -56,8 +56,8 @@ function ChatRoom({ roomId }: { roomId: string }) {
                             <div
                                 key={i}
                                 className={`max-w-[75%] px-3 py-2 rounded ${isUser
-                                        ? 'bg-gray-700 self-end ml-auto text-right'
-                                        : 'bg-gray-800 self-start mr-auto text-left'
+                                    ? 'bg-gray-700 self-end ml-auto text-right'
+                                    : 'bg-gray-800 self-start mr-auto text-left'
                                     }`}
                             >
                                 {isUser ? msg.replace('YOU: ', '') : msg}

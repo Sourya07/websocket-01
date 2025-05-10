@@ -26,6 +26,7 @@ wss.on("connection", (socket) => {
         }
         if (parsedMessage.type == "chat") {
             const currentUsername = allSockets.find((x) => x.socket == socket)
+
             if (!currentUsername) {
                 console.log("User sent message without joining a room");
                 return;
@@ -33,7 +34,7 @@ wss.on("connection", (socket) => {
 
 
             for (let i = 0; i < allSockets.length; i++) {
-                if (allSockets[i].room == currentUsername.room) {
+                if (allSockets[i].room == currentUsername.room && allSockets[i].socket !== socket) {
                     allSockets[i].socket.send(parsedMessage.payload.message)
                 }
             }

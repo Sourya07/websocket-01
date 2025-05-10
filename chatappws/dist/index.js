@@ -24,7 +24,7 @@ wss.on("connection", (socket) => {
                 return;
             }
             for (let i = 0; i < allSockets.length; i++) {
-                if (allSockets[i].room == currentUsername.room) {
+                if (allSockets[i].room == currentUsername.room && allSockets[i].socket !== socket) {
                     allSockets[i].socket.send(parsedMessage.payload.message);
                 }
             }
